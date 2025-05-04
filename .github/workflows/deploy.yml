@@ -22,12 +22,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: "20" # Use your project's Node.js version
-          cache: "npm" # Change cache to pnpm
-
-      - name: Install pnpm
-        uses: npm/action-setup@v4 # Add step to install pnpm
-        with:
-          version: latest # Or specify a pnpm version
+          cache: "npm"
 
       - name: Install Dependencies
         run: npm install --frozen-lockfile # Change command to pnpm install
