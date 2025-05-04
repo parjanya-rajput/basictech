@@ -1,7 +1,7 @@
 import type { NextConfig } from "next";
 import path from "path";
 
-const repoName = 'basictech-next';
+const repoName = 'basictech';
 const isProd = process.env.NODE_ENV === 'production';
 
 const nextConfig: NextConfig = {
