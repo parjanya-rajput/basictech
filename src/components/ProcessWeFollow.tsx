@@ -1,6 +1,6 @@
 'use client'; // Assuming ChefronCardText might use client features
 
-import Image, { StaticImageData } from 'next/image'; // Import Image for icons
+import { StaticImageData } from 'next/image'; // Import Image for icons
 import { ChefronCardText } from "./ChefronCard";
 
 // Import assets directly
@@ -8,16 +8,14 @@ import Comprehend from "../assets/Comprehend.png";
 import Design from "../assets/Design.png";
 import Development from "../assets/Development.png";
 import Test from "../assets/Test.png";
-import Maintaince from "../assets/Maintaince.png"; // Corrected spelling if filename is 'Maintaince.png'
+import Maintaince from "../assets/Maintaince.png";
 
-// Define the structure for a step/benefit
 interface ProcessStep {
   icon: StaticImageData; // Use StaticImageData for imported images
   title: string;
 }
 
 const ProcessWeFollow = () => {
-  // Renamed array to 'steps' for clarity, matching original variable name
   const steps: ProcessStep[] = [
     { icon: Comprehend, title: "Comprehend" },
     { icon: Design, title: "Design" },
