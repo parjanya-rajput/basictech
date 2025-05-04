@@ -1,0 +1,51 @@
+name: Deploy Basic Tech Website
+
+on:
+  push:
+    branches:
+      - main # Or your default branch (e.g., master)
+  workflow_dispatch: # Allows manual triggering
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20" # Use your project's Node.js version
+          cache: "pnpm" # Change cache to pnpm
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4 # Add step to install pnpm
+        with:
+          version: latest # Or specify a pnpm version
+
+      - name: Install Dependencies
+        run: pnpm install --frozen-lockfile # Change command to pnpm install
+
+      - name: Build Next.js App
+        run: pnpm run build # Change command to pnpm run build
+
+      - name: Add .nojekyll file
+        run: touch ./out/.nojekyll # Prevents GitHub Pages from using Jekyll
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./out # Deploy the 'out' directory
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
