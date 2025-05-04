@@ -22,18 +22,18 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: "20" # Use your project's Node.js version
-          cache: "pnpm" # Change cache to pnpm
+          cache: "npm" # Change cache to pnpm
 
       - name: Install pnpm
-        uses: pnpm/action-setup@v4 # Add step to install pnpm
+        uses: npm/action-setup@v4 # Add step to install pnpm
         with:
           version: latest # Or specify a pnpm version
 
       - name: Install Dependencies
-        run: pnpm install --frozen-lockfile # Change command to pnpm install
+        run: npm install --frozen-lockfile # Change command to pnpm install
 
       - name: Build Next.js App
-        run: pnpm run build # Change command to pnpm run build
+        run: npm run build # Change command to pnpm run build
 
       - name: Add .nojekyll file
         run: touch ./out/.nojekyll # Prevents GitHub Pages from using Jekyll
