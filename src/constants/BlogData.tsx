@@ -287,14 +287,14 @@ export const blogs: BlogMeta[] = [
 export const blogPageSlides = [
   {
     slug: "lorem-ipsum",
-    title: "Lorem Ipsum Is Sim",
+    title: "The best way to predict the future is to invent it.",
     description:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. It has been the industry's standard since the 1500s.",
+      "At Basic Tech, we’re busy inventing. Explore our projects and see how ideas turn into impact.",
   },
   {
     slug: "boost-with-ai",
-    title: "Boost Your Business with AI",
+    title: "If you're not embarrassed by the first version of your product, you've launched too late.",
     description:
-      "Embrace the power of AI and technology to stay ahead in the competitive market.",
+      "If you're not embarrassed by the first version of your product, you've launched too late.",
   },
 ];

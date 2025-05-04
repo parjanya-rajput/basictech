@@ -11,10 +11,6 @@ import Faq from "@/components/Faq";
 import OtherProjects from '@/components/OtherProjects';
 
 
-import defaultChallengeImage from '@/assets/default_challenge.svg.png'
-import defaultDesignImage from '@/assets/default_design.svg.png'
-import defaultSolutionImage from '@/assets/default_solution.svg fill.png'
-
 
 const glassEffect = "backdrop-blur-lg bg-white/50 border border-white/30 shadow-xl rounded-lg";
 
@@ -91,13 +87,13 @@ const FeaturesSection = ({ features, featureImage }: { features: string[]; featu
 );
 
 // Challenge Section Component
-const ChallengeSection = ({ challenge }: { challenge: string }) => (
+const ChallengeSection = ({ challenge, challengeImage }: { challenge: string; challengeImage: string }) => (
     <div className="mb-12">
         <div className={`p-6 rounded-xl ${glassEffect}`}>
             <h3 className="text-2xl text-blue-600 font-bold text-center mb-4 font-agrandir-heavy">The Challenge</h3>
             <div className="flex flex-col md:flex-row gap-6 items-center">
                 <div className="relative w-48 h-48 md:w-60 md:h-60 flex-shrink-0"> {/* Added relative positioning */}
-                    <Image src={defaultChallengeImage} alt="Challenge Icon" fill className="object-contain" />
+                    <Image src={challengeImage} alt="Challenge Icon" fill className="object-contain" />
                 </div>
                 <div className="w-full">
                     {challenge.split('|').map((paragraph, index) => (
@@ -119,7 +115,7 @@ const DesignSection = ({ design, designImage }: { design: string; designImage: s
             <div className="flex flex-col md:flex-row-reverse gap-6 items-center">
                 <div className="relative w-48 h-48 md:w-60 md:h-60 flex-shrink-0"> {/* Added relative positioning */}
                     {/* Use fallback image if designImage is missing or use imported default */}
-                    <Image src={designImage || defaultDesignImage} alt="Design representation" fill className="object-contain" />
+                    <Image src={designImage} alt="Design representation" fill className="object-contain object-top" />
                 </div>
                 <div className="w-full">
                     {design.split('|').map((paragraph, index) => (
@@ -141,7 +137,7 @@ const SolutionSection = ({ solution, solutionPoints, solutionImage }: { solution
             <div className="flex flex-col md:flex-row gap-6 items-center">
                 <div className="relative w-48 h-48 md:w-60 md:h-60 flex-shrink-0"> {/* Added relative positioning */}
                     {/* Use fallback image if solutionImage is missing or use imported default */}
-                    <Image src={solutionImage || defaultSolutionImage} alt="Solution representation" fill className="object-contain" />
+                    <Image src={solutionImage} alt="Solution representation" fill className="object-contain" />
                 </div>
                 <div className="w-full">
                     <p className="text-gray-700 leading-relaxed mb-4 font-agrandir">{solution}</p>
@@ -209,7 +205,7 @@ export default async function ProjectPage({
                 <ClientInfoSection clientInfo={project.clientInfo} />
                 <BusinessRequirementSection businessRequirement={project.businessRequirement} />
                 <FeaturesSection features={project.features} featureImage={project.featureImage} />
-                <ChallengeSection challenge={project.challenge} />
+                <ChallengeSection challenge={project.challenge} challengeImage={project.challengeImage} />
                 <DesignSection design={project.design} designImage={project.designImage} />
                 <SolutionSection solution={project.solution} solutionPoints={project.solutionPoints} solutionImage={project.solutionImage} />
 
