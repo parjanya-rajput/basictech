@@ -65,7 +65,7 @@ export default async function BlogPostPage({
                                 src={blogPost.image}
                                 alt={blogPost.title}
                                 fill
-                                className="object-cover" // 'cover' usually looks better for header images
+                                className="object-cover object-top"
                                 priority // Prioritize loading the main image
                                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 60vw"
                             />
@@ -98,7 +98,7 @@ export default async function BlogPostPage({
                                         // Fixed template literal syntax for alt text
                                         alt={section.subtitle || `Section ${index + 1} image`}
                                         fill
-                                        className="object-contain" // Use contain if images shouldn't be cropped
+                                        className="object-contain object-top" // Use contain if images shouldn't be cropped
                                         sizes="(max-width: 768px) 100vw, 50vw"
                                     />
                                 </div>
@@ -114,7 +114,7 @@ export default async function BlogPostPage({
                                                 // Fixed template literal syntax for alt text
                                                 alt={`${section.subtitle || 'Section image'} ${imgIndex + 1}`}
                                                 fill
-                                                className="object-cover" // Cover usually works well for grids
+                                                className="object-contain object-top" // Cover usually works well for grids
                                                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                                             />
                                         </div>
