@@ -65,7 +65,7 @@ const BusinessRequirementSection = ({ businessRequirement }: { businessRequireme
 const FeaturesSection = ({ features, featureImage }: { features: string[]; featureImage: string }) => (
     <div className="mb-12">
         <div className={`p-6 rounded-xl ${glassEffect} grid grid-cols-1 md:grid-cols-3 gap-6 items-center`}>
-            <div>
+            <div className="md:col-span-2">
                 <h3 className="text-2xl text-blue-600 font-bold mb-4 font-agrandir-heavy">Features</h3>
                 <div className="space-y-2 mb-6">
                     {features.map((feature, index) => (
@@ -73,13 +73,13 @@ const FeaturesSection = ({ features, featureImage }: { features: string[]; featu
                     ))}
                 </div>
             </div>
-            <div className="relative mt-8 md:mt-0 col-span-2 flex justify-center items-center h-64 md:h-80"> {/* Added relative positioning and height */}
+            <div className="relative h-64 w-full flex justify-end items-center">
                 <Image
-                    src={featureImage} // Assumes path is correct
+                    src={featureImage}
                     alt="Feature visual representation"
                     fill
                     className="object-contain rounded-lg shadow-md"
-                    sizes="(max-width: 768px) 100vw, 66vw"
+                    sizes="(max-width: 768px) 100vw, 33vw"
                 />
             </div>
         </div>
