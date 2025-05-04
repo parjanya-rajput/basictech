@@ -1,15 +1,15 @@
 import type { NextConfig } from "next";
 import path from "path";
 
-const repoName = 'basictech';
-const isProd = process.env.NODE_ENV === 'production';
+// const repoName = 'basictech';
+// const isProd = process.env.NODE_ENV === 'production';
 
 const nextConfig: NextConfig = {
   /* config options here */
   output: 'export',
 
-  basePath: isProd ? `/${repoName}` : '',
-  assetPrefix: isProd ? `/${repoName}/` : '',
+  // basePath: isProd ? `/${repoName}` : '',
+  // assetPrefix: isProd ? `/${repoName}/` : '',
 
   images: {
     unoptimized: true,
